@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'web/omniauth_callbacks' }
 
   scope module: :web do
-    root 'home#index'
+    root 'home#indexx'
     resources :vacancies, only: %i[index show]
     resources :vacancy_filters, only: %i[show] do
       collection do

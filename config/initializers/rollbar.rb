@@ -4,10 +4,12 @@ Rollbar.configure do |config|
   # Without configuration, Rollbar is enabled in all environments.
   # To disable in specific environments, set config.enabled=false.
 
-  config.access_token = ENV['ROLLBAR_ACCESS_TOKEN']
+  config.access_token = 'bee11809946f4941a368acf1e0f9b316'
 
   # Here we'll disable in 'test':
-  config.enabled = false if Rails.env.test?
+  if Rails.env.test?
+    config.enabled = false
+  end
 
   # By default, Rollbar will try to call the `current_user` controller method
   # to fetch the logged-in user object, and then call that object's `id`
@@ -36,7 +38,7 @@ Rollbar.configure do |config|
 
   # Enable asynchronous reporting (uses girl_friday or Threading if girl_friday
   # is not installed)
-  config.use_async = true
+  # config.use_async = true
   # Supply your own async handler:
   # config.async_handler = Proc.new { |payload|
   #  Thread.new { Rollbar.process_from_async_handler(payload) }
