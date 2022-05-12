@@ -2,8 +2,6 @@
 
 class Web::HomeController < Web::ApplicationController
   def index
-    raise 'Wow shit' if rand(2).positive?
-
     q = Resume.web.ransack(params[:q])
     @resumes = q.result(distinct: true).page(params[:page])
 
